@@ -148,7 +148,7 @@ pub(crate) fn menu_ui<'c, R>(
         .interactable(true)
         .drag_bounds(ctx.screen_rect());
 
-    inner_response = area.show(ctx, |ui| {
+    area.show(ctx, |ui| {
         set_menu_style(ui.style_mut());
 
         let frame = Frame::menu(ui.style()).show(ui, |ui| {
@@ -163,7 +163,7 @@ pub(crate) fn menu_ui<'c, R>(
         menu_state_arc.write().rect = frame.response.rect;
 
         frame.inner
-    });
+    })
 }
 
 /// Build a top level menu with a button.
